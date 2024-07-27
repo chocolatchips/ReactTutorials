@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta cahrset="UTF-8" />
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <title>React *</title>
+    </head>
+    <body>
+        <div id="heading"></div>
+        <div id="list"></div>
+        <h1>Getting started with React (html)</h1>
+         <script type="text/javascript">
+            let heading = React.createElement(
+                "h1",
+                null,
+                "Getting started with React (React)"
+            );
+            ReactDOM.render(
+                heading,
+                document.getElementById("heading")
+            );
+
+         </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta cahrset="UTF-8" />
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <title>React Lists</title>
+    </head>
+    <body>
+        
+        <h1>Getting started with React (lists)</h1>
+        <div id="list"></div>
+         <script type="text/javascript">
+            let ul = React.createElement(
+                "ul",
+                { style: { color: "blue" } },
+                React.createElement("li", null, "Monday"),
+                React.createElement("li", null, "Tuesday"),
+                React.createElement("li", null, "Wednesday")
+            );
+            ReactDOM.render(
+                ul,
+                document.getElementById("list")
+            );
+
+         </script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta cahrset="UTF-8" />
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>React Lists</title>
+    </head>
+    <body>
+        
+        <h1>Getting started with React (Components)</h1>
+        <div id="root"></div>
+         <script type="text/babel">
+
+            function Header(props) {
+                console.log(props);
+                return (
+                    <header>
+                        <h1>{props.name}'s Kitchen</h1>
+                    </header>
+                );
+            }
+            
+            function Main(props) {
+                return (
+                    <section>
+                        <img 
+                            // src="https://images.pexels.com/photos/2544829/pexels-photo-2544829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                            src="./kitchen.jpg"
+                            height={200}
+                            alt="A chef whisking a sauce in a sauce pan"
+                        />
+                        <ul>
+                            {props.dishes.map((dish) => (
+                                <li key={dish.id}>{dish.title}</li>
+                            ))}
+                        </ul>
+                    </section>
+                );
+            }
+            
+
+            const dishes = [
+                "Black Bean Soup",
+                "Macaronin and Cheese",
+                "Salmon and Potatoes"
+            ];
+
+            const dishObjects = dishes.map(
+                (dish, i) => ({
+                    id:i,
+                    title: dish
+                })
+            );
+
+            function App() {
+                return (
+                    <React.Fragment>
+                        <Header name="Chris"/>
+                        <Main dishes={dishObjects}/>
+
+                    </React.Fragment>
+                );
+            }
+            ReactDOM.render(
+                <App />,
+                document.getElementById("root")
+            );
+
+         </script>
+    </body>
+</html>
