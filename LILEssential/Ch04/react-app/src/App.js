@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect, useReducer } from 'react';
+import { Link, Outlet } from "react-router-dom";
 
 function useInput(initialValue){
   const [value, setValue] = useState(initialValue);
@@ -58,6 +59,7 @@ const tahoe_peaks = [
   }
 ];
 
+
 function List( { data, renderItem, renderEmpty } ) {
   return !data.length ? renderEmpty 
   : (
@@ -71,8 +73,55 @@ function List( { data, renderItem, renderEmpty } ) {
   );
 }
 
+function Nav() {
+  return (
+    <nav>
+      <Link to='/'>Home</Link>
+      <Link to='/about'>About</Link>
+      <Link to='/app'>App</Link>
+      <Link to='/contact'>Contact</Link>
+    </nav>
+  );
+}
 
-function App() {
+export function Home(){
+  return (
+    <div>
+      <Nav />
+      <h1>My Website</h1>
+    </div>
+  );
+}
+
+export function Contact() {
+  return (
+    <div>
+      <Nav />
+      <h1>Contact Us</h1>
+    </div>
+  );
+}
+
+export function About() {
+  return (
+    <div>
+      <Nav />
+      <h1>About</h1>
+      <Link to='history'>History</Link>
+      <Outlet />
+    </div>
+  );
+}
+
+export function History() {
+  return (
+    <div>
+      <h1>Our History</h1>
+    </div>
+  );
+}
+
+export function App() {
   const [emotion, setEmotion] = useState("happy");
   const [secondary, setSecondary] = useState("tired");
   const [checked, setChecked] = useReducer(checked => !checked, false);
@@ -126,6 +175,7 @@ function App() {
 
   return (
     <div className="App">
+      <Nav />
       <GithubUser
         name={data.name}
         bio={data.bio}
@@ -185,5 +235,3 @@ function App() {
 
   
 }
-
-export default App;
